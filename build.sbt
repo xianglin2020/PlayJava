@@ -7,6 +7,9 @@ lazy val root = (project in file("."))
   .settings(
     name := """PlayJava""",
     libraryDependencies ++= Seq(
-      guice
+      guice,
+      "dev.morphia.morphia" % "morphia-core" % "2.2.7"
     )
   )
+
+

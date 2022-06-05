@@ -1,7 +1,6 @@
-package store.xianglin.play2.controllers;
+package controllers;
 
 import play.mvc.*;
-import store.xianglin.play2.views.html.*;
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -18,11 +17,11 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
-        return ok(index.render());
+        return ok(views.html.index.render());
     }
 
     public Result hello(String name) {
-        return ok(hello.render(name));
+        return ok(views.html.hello.render(name));
     }
 
 }

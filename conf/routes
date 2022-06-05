@@ -3,7 +3,48 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index()
+GET         /                                  controllers.HomeController.index()
+
+GET         /hello                             controllers.HomeController.hello(name:String)
+
+GET         /config                            controllers.ConfigController.config
+
+GET         /result/contentType                controllers.ResultController.contentType
+GET         /result/header                     controllers.ResultController.header
+GET         /result/cookie                     controllers.ResultController.cookie(request: play.mvc.Http.Request)
+
+GET         /session/read                      controllers.SessionAndFlashController.readSession(request : play.mvc.Http.Request)
+GET         /session/add                       controllers.SessionAndFlashController.addSession(request : play.mvc.Http.Request)
+GET         /session/clear                     controllers.SessionAndFlashController.clearSession
+GET         /flash/read                        controllers.SessionAndFlashController.readFlash(request : play.mvc.Http.Request)
+GET         /flash/add                         controllers.SessionAndFlashController.addFlash()
+
+GET         /body/json                         controllers.BodyParserController.json(request : play.mvc.Http.Request)
+GET         /body/file                         controllers.BodyParserController.file(request : play.mvc.Http.Request)
+
+GET         /composition/index                 controllers.VerboseController.verboseIndex()
+GET         /composition/home                  controllers.VerboseController.verboseHome()
+
+GET         /mongo/user/get                    controllers.MongoController.getUser(id: String)
+POST        /mongo/user/save                   controllers.MongoController.saveUser()
+GET         /mongo/project/get                 controllers.MongoController.getProject(id: String)
+POST        /mongo/project/save                controllers.MongoController.saveProject()
+
+GET         /async/index                       controllers.async.AsyncController.index
+GET         /async/indexEc                     controllers.async.AsyncWithCustomExecutionContentController.index
+GET         /async/timeout/index               controllers.async.TimeoutController.index
+GET         /async/stream/index                controllers.async.StreamController.index
+GET         /async/stream/file                 controllers.async.StreamController.file
+GET         /async/stream/fileToDisplay        controllers.async.StreamController.fileToDisplay
+GET         /async/stream/trunked              controllers.async.StreamController.trunked
+
+GET         /security/index                    controllers.security.SecurityController.index
+GET         /security/authenticate             controllers.security.SecurityController.authenticate
+GET         /security/authenticated            controllers.security.SecurityController.authenticated(request : play.mvc.Http.Request)
+GET         /security/permissions              controllers.security.SecurityController.permissions(request : play.mvc.Http.Request)
+GET         /security/pathPermission           controllers.security.SecurityController.pathPermission(request : play.mvc.Http.Request)
+
+
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/*file                      controllers.Assets.versioned(path="/public", file: Asset)
