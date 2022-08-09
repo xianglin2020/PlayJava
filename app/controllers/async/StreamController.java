@@ -26,13 +26,15 @@ import java.util.Optional;
  * @author xianglin
  */
 public class StreamController extends Controller {
+    /**
+     * Http 响应组成：HTTP 响应头 响应体
+     */
     public Result httpResponse() {
         return new Result(
                 new ResponseHeader(Http.Status.OK, Collections.emptyMap()),
                 new HttpEntity.Strict(ByteString.fromString("It's work!"), Optional.of(Http.MimeTypes.TEXT))
         );
     }
-
 
     public Result index() throws IOException {
         var path = Paths.get("/home/xianglin/Downloads/20220504100611.json");
@@ -72,6 +74,5 @@ public class StreamController extends Controller {
                 );
         return ok().chunked(trunked);
     }
-
 
 }
